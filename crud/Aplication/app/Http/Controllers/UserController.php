@@ -97,6 +97,25 @@ class UserController extends Controller
             return response()->json(["sucesso" => 0, "message" => "Falha ao alterar os dados"]);
         }
     }
+
+    public function register(Request $request) {
+        $response = Http::withToken($request->session()->get('access_token'))->post('http://127.0.0.1:8000/api/auth/register',[
+            "login" => $request->input('login'),
+            "name" => $request->input('name'),
+            "password" => $request->input('password'),
+            "password_confirmation" => $request->input('password_confirmation')
+        ]);
+        if( $response->successful() ) {
+            $data = $response->json();
+            
+            if($data['sucesso'] == 1){
+                return response()->json(["sucesso" => 1, "message" => "Cadastrado com sucesso"]);
+            }
+            return response()->json(["sucesso" => 0, "message" => "Falha ao cadastrar os dados"]);
+        } else {
+            return response()->json(["sucesso" => 0, "message" => "Falha ao cadastrar os dados"]);
+        }
+    }
     public function logout(Request $request){
         $request->session()->flush();
         return redirect('/');

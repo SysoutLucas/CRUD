@@ -79,7 +79,21 @@ $(document).ready(function(){
             }
           },
           submitHandler: function(form) {
-            
+            $.ajax({
+              url: base_url+'user/add',
+              type: "POST",
+              data: $("#form_register").serializeArray(),
+              async: true,
+              dataType: "Json",
+              success: function(data) {
+                if(data.sucesso == 1){
+                  alert(data.message);
+                  location.href = base_url;
+                } else {
+                  alert(data.message);
+                }
+              }
+            })
           }
         });
 

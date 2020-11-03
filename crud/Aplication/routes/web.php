@@ -22,6 +22,7 @@ Route::group([
 ], function ($router) {
     Route::get('home', 'UserController@home');
     Route::get('user/add', 'UserController@showAdd');
+    Route::post('user/add', 'UserController@register');
     Route::get('user/edit/{id}', 'UserController@showEdit')->where(['id' => '[0-9]+']);
     Route::post('user/edit/{id}', 'UserController@store')->where(['id' => '[0-9]+']);
     Route::delete('user/delete/{id}', 'UserController@destroy')->where(['id' => '[0-9]+']);

@@ -37,7 +37,7 @@
           </form>
           <hr>
           <div class="text-center">
-            <a class="small" href="{{url('')}}">Já tem uma conta? acesse aqui</a>
+            <a class="small" href="{{url('/')}}">Já tem uma conta? acesse aqui</a>
           </div>
         </div>
       </div>
