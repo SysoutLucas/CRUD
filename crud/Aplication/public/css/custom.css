@@ -1,0 +1,14 @@
+.error {
+    font-size: 12px;
+    color: red;
+    font-weight: bold;
+    width: 100%;
+}
+
+.paginate_button.active {
+    background-color: #4e73df;
+}
+
+.paginate_button.active a{
+    color: white;
+}
